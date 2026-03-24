@@ -542,6 +542,13 @@ grid-template-columns: 1fr;
 .video__grid {
 grid-template-columns: repeat(3, 1fr);
 }
+.portfolio__grid img {
+  transition: transform 0.3s ease;
+}
+
+.portfolio__grid img:hover {
+  transform: scale(1.05);
+}
 }
 
 }

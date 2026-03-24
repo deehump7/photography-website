@@ -90,7 +90,7 @@
 
   <div class="video__grid">
     <div class="video__card">
-      <video controls muted autoplay loop playsinline>
+      <video controls controls preload="metadata" playsinline> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video1.mp4" type="video/mp4" />
       </video>
       <h4>Drone Footage</h4>
@@ -98,7 +98,7 @@
     </div>
 
     <div class="video__card">
-      <video controls muted autoplay loop playsinline>
+      <video controls controls preload="metadata" playsinline> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video2.mp4"  type="video/mp4" />
       </video>
       <h4>Event Highlight</h4>
@@ -106,7 +106,7 @@
     </div>
 
     <div class="video__card">
-      <video controls muted autoplay loop playsinline>
+      <video controls controls preload="metadata" playsinline> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video3.mp4" type="video/mp4" />
       </video>
       <h4>Brand Story</h4>
@@ -124,12 +124,12 @@
             Have a project in mind or need a photographer or filmmaker to bring
             your vision to life? I'd love to hear from you!
           </p>
-          <form action="/">
+          <form action="https://formspree.io/f/meeryyke" method="POST">
             <div class="input__row">
-              <input type="text" placeholder="Your Name" />
-              <input type="text" placeholder="Your Email" />
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required/>
             </div>
-            <input type="text" placeholder="Your Message" />
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button class="btn" type="submit">SEND IT</button>
           </form>
         </div>
