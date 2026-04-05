@@ -34,7 +34,7 @@
     <header id="home">
       <div class="section__container header__container">
         <div class="header__content">
-          <h1>Photographer & Videographer</h1>
+          <h1>Capturing Moments. Telling Stories Through Film & Photography</h1>
           <h2>Georgia, USA</h2>
           <div class="header__btn">
             <a href="#contact" class="btn"> HIRE ME</a>
@@ -70,7 +70,11 @@
       <h2 class="section__header">Portfolio</h2>
       <div class="portfolio__grid">
         <div> 
-          <img src="https://od1shotsstorage.blob.core.windows.net/media/images/portfolio-1.jpg" alt="1" />
+          <a href="https://od1shotsstorage.blob.core.windows.net/media/images/portfolio-1.jpg"
+            data-lightbox="portfolio"
+            data-title="Photo 1"
+          img src="https://od1shotsstorage.blob.core.windows.net/media/images/portfolio-1.jpg"></a>
+          <a href=""
           <img src="https://od1shotsstorage.blob.core.windows.net/media/images/portfolio-2.jpg" alt="2" />
         </div>
         <div>
@@ -90,7 +94,7 @@
 
   <div class="video__grid">
     <div class="video__card">
-      <video controls preload="metadata"> 
+      <video controls preload="none"> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video1.mp4" type="video/mp4" />
       </video>
       <h4>Drone Footage</h4>
@@ -98,7 +102,7 @@
     </div>
 
     <div class="video__card">
-      <video controls preload="metadata"> 
+      <video controls preload="none"> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video2.mp4"  type="video/mp4" />
       </video>
       <h4>Event Highlight</h4>
@@ -106,7 +110,7 @@
     </div>
 
     <div class="video__card">
-      <video controls preload="metadata"> 
+      <video controls preload="none"> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video3.mp4" type="video/mp4" />
       </video>
       <h4>Brand Story</h4>
@@ -135,6 +139,7 @@
             <input type="hidden" name="_subject" value="New Inquiry from OD1 Shots">
 
             <button class="btn" type="submit">SEND IT</button>
+            <p id="form-status"></p>
 
           </form>
         </div>
@@ -157,19 +162,19 @@
           <h4 class="section__header">My Social Links</h4>
           <ul class="footer__socials">
             <li>
-              <a href="#"><i class="ri-facebook-fill"></i></a>
+              <a href="https://www.facebook.com/people/OD1/" target="_blank"><i class="ri-facebook-fill"></i></a>
             </li>
               <li>
-              <a href="https://instagram.com/OD1Shots"><i class="ri-instagram-line"></i></a>
+              <a href="https://instagram.com/od1shots" target="_blank"><i class="ri-instagram-line"></i></a>
             </li>
             <li>
-              <a href="#"><i class="ri-youtube-fill"></i></a>
+              <a href="http://www.youtube.com/@od1shots576" target="_blank"><i class="ri-youtube-fill"></i></a>
             </li>
           </ul>
         </div>
       </div>
       <div class="footer__bar">
-        Copyright © 2025. All rights reserved.
+        Copyright © 2025. All rights reserved. Built and deployed using Azure Static Web App and Azure Blob Storage
       </div>
     </footer>
 
