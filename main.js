@@ -71,3 +71,5 @@ ScrollReveal().reveal(".blog__btn", {
 ScrollReveal().reveal(".contact__image img", {
   ...scrollRevealOption,
 });
+
+
