@@ -29,6 +29,7 @@
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#videos">Videography</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking">Book</a></li>
       </ul>
     </nav>
 
@@ -38,7 +39,7 @@
           <h1>Capturing Moments. Telling Stories Through Film & Photography</h1>
           <h2>Georgia, USA</h2>
           <div class="header__btn">
-            <a href="#contact" class="btn"> HIRE ME</a>
+            <a href="#booking" class="btn">BOOK A SESSION</a>
           </div>
         </div>
       <div class="header__image">
@@ -176,7 +177,21 @@
         </div>
       </div>
     </section>
+<section id="booking" class="section__container">
+  <h2 class="section__header">Book a Session</h2>
 
+  <div style="text-align:center; margin-top:20px;">
+    <button class="btn" onclick="openBooking()">Book Now</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBooking()">&times;</span>
+      <iframe src="https://od1shotsbooking.lovable.app"></iframe>
+    </div>
+  </div>
+</section>
     <footer>
       <div class="section__container footer__container">
         <div class="footer__col">

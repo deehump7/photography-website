@@ -72,4 +72,18 @@ ScrollReveal().reveal(".contact__image img", {
   ...scrollRevealOption,
 });
 
+function openBooking() {
+  document.getElementById("bookingModal").style.display = "block";
+}
 
+function closeBooking() {
+  document.getElementById("bookingModal").style.display = "none";
+}
+
+// Close when clicking outside modal
+window.onclick = function (event) {
+  const modal = document.getElementById("bookingModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
