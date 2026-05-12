@@ -136,10 +136,12 @@ nav {
   inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease;
+  pointer-events: none;
 }
 
 .slide.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* image zoom effect */
@@ -278,4 +280,41 @@ nav {
   .header__content h1 {
     font-size: 5rem;
   }
+
+/* =========================
+   MOBILE IMPROVEMENTS
+========================= */
+@media (max-width: 768px) {
+
+  .header__content h1 {
+    font-size: 2.2rem;
+    padding: 0 1rem;
+  }
+
+  .header__content h2 {
+    font-size: 1.2rem;
+  }
+
+  .slider {
+    height: 300px; /* shorter for mobile */
+  }
+
+  .section__header {
+    font-size: 2rem;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+
+  .nav__links.open {
+    display: flex;
+  }
+}
 }
