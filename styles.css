@@ -280,12 +280,12 @@ nav {
   .header__content h1 {
     font-size: 5rem;
   }
+}
 
 /* =========================
    MOBILE IMPROVEMENTS
 ========================= */
 @media (max-width: 768px) {
-
   .header__content h1 {
     font-size: 2.2rem;
     padding: 0 1rem;
@@ -296,7 +296,7 @@ nav {
   }
 
   .slider {
-    height: 300px; /* shorter for mobile */
+    height: 300px;
   }
 
   .section__header {
@@ -316,5 +316,4 @@ nav {
   .nav__links.open {
     display: flex;
   }
-}
 }
