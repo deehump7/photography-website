@@ -83,7 +83,19 @@ function closeBooking() {
 // Close when clicking outside modal
 window.onclick = function (event) {
   const modal = document.getElementById("bookingModal");
-  if (event.target === modal) {
+  const openBtn = document.getElementById("bookBtn");
+  const closeBtn = this.document.querySelector(".close");
+
+  openBtn.onclick = () => {
+    modal.style.display = "block";
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+};
+
+window.onclick = (e) => {
+  if (e.target === modal) {
     modal.style.display = "none";
   }
 };
