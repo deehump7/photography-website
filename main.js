@@ -1,97 +1,35 @@
+// ================= NAV TOGGLE =================
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
 
-menuBtn.addEventListener("click", (e) => {
-  navLinks.classList.toggle("open");
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 
-  const isOpen = navLinks.classList.contains("open");
+  const isOpen = navLinks.classList.contains("active");
   menuBtnIcon.setAttribute(
     "class",
     isOpen ? "ri-close-line" : "ri-menu-3-line"
   );
 });
 
-navLinks.addEventListener("click", (e) => {
-  navLinks.classList.remove("open");
+navLinks.addEventListener("click", () => {
+  navLinks.classList.remove("active");
   menuBtnIcon.setAttribute("class", "ri-menu-3-line");
 });
 
-const scrollRevealOption = {
-  distance: "50px",
-  origin: "bottom",
-  duration: 1000,
+
+// ================= BOOKING MODAL =================
+const modal = document.getElementById("bookingModal");
+const openBtn = document.getElementById("bookBtn");
+const closeBtn = document.querySelector(".close");
+
+openBtn.onclick = () => {
+  modal.style.display = "block";
 };
 
-ScrollReveal().reveal(".header__image img", {
-  ...scrollRevealOption,
- origin: "right",
-});
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".header__content h2", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".header__btn", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
-
-ScrollReveal().reveal(".about__image img", {
-  ...scrollRevealOption,
-  origin: "left",
-});
-ScrollReveal().reveal(".about__content .section__header", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".about__content p", {
-  ...scrollRevealOption,
-  delay: 1000,
-  interval: 500,
-});
-ScrollReveal().reveal(".about__btn", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
-
-ScrollReveal().reveal(".blog__card", {
-  duration: 1000,
-  interval: 500,
-});
-
-ScrollReveal().reveal(".blog__btn", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
-
-ScrollReveal().reveal(".contact__image img", {
-  ...scrollRevealOption,
-});
-
-function openBooking() {
-  document.getElementById("bookingModal").style.display = "block";
-}
-
-function closeBooking() {
-  document.getElementById("bookingModal").style.display = "none";
-}
-
-// Close when clicking outside modal
-window.onclick = function (event) {
-  const modal = document.getElementById("bookingModal");
-  const openBtn = document.getElementById("bookBtn");
-  const closeBtn = this.document.querySelector(".close");
-
-  openBtn.onclick = () => {
-    modal.style.display = "block";
-  };
-
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
+closeBtn.onclick = () => {
+  modal.style.display = "none";
 };
 
 window.onclick = (e) => {
@@ -100,7 +38,8 @@ window.onclick = (e) => {
   }
 };
 
-<script>
+
+// ================= SLIDER =================
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 
@@ -121,40 +60,8 @@ function prevSlide() {
 document.querySelector(".next").onclick = nextSlide;
 document.querySelector(".prev").onclick = prevSlide;
 
-/* AUTO SLIDE */
 setInterval(() => {
   nextSlide();
 }, 5000);
 
-/* INIT */
 showSlide(slideIndex);
-</script>
-
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-
-function showSlide(index) {
-  slides.forEach((slide) => slide.classList.remove('active'));
-  slides[index].classList.add('active');
-}
-
-nextBtn.addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-});
-
-prevBtn.addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-});
-
-// Auto-slide (optional)
-setInterval(() => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}, 5000);  
-
-};
