@@ -20,9 +20,20 @@ navLinks.addEventListener("click", () => {
 
 
 // ================= BOOKING MODAL =================
+const bookBtn = document.getElementById("bookBtn");
+const bookingModal = document.getElementById("bookingModal");
 const modal = document.getElementById("bookingModal");
-const openBtn = document.getElementById("bookBtn");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".close-btn");
+
+bookBtn.addEventListener("click", () => {
+  bookingModal.classList.add("active");
+  document.body.style.overflow ="hidden";
+});
+
+closeBtn.addEventListener("click", () =>{
+  bookingModal.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
 
 openBtn.onclick = () => {
   modal.style.display = "block";

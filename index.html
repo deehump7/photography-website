@@ -11,34 +11,37 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <div class="nav__header">
-        <div class="nav__logo">
-          <a href="#">
-            <img src="https://od1shotsstorage.blob.core.windows.net/media/logo.jpg" alt="logo" />
-          </a>
-        </div>
-        <div class="nav__menu__btn" id="menu-btn">
-          <i class="ri-menu-3-line"></i>
-        </div>
-      </div>
+    <nav>
+  <div class="nav__header">
+    <div class="nav__logo">
+      <a href="#">
+        <img loading="lazy" src="https://od1shotsstorage.blob.core.windows.net/media/logo.jpg" alt="logo" />
+      </a>
+    </div>
 
-      <ul class="nav__links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#videos">Videography</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <div class="nav__menu__btn" id="menu-btn">
+      <i class="ri-menu-3-line"></i>
+    </div>
+  </div>
 
-        <li><a href="#" id="bookBtn">Book</a></li>
+  <ul class="nav__links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#videos">Videography</a></li>
+    <li><a href="#contact">Contact</a></li>
 
-      <li>
-        <a href="https://od1shotsbooking.lovable.app" target="_blank">
-          Client Portal
-          </a>
-        </li>
-        </ul> 
-    </nav>
+    <!-- FIXED BOOK BUTTON -->
+    <li><a href="#" id="bookBtn">Book</a></li>
+
+    <!-- CRM LINK -->
+    <li>
+      <a href="https://od1shotsbooking.lovable.app" target="_blank">
+        Client Portal
+      </a>
+    </li>
+  </ul>
+</nav>
 
     <header id="home">
       <div class="section__container header__container">
@@ -165,7 +168,7 @@
 
   <div class="video__grid">
     <div class="video__card">
-      <video controls preload="none"> 
+      <video controls playsinline> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video1.mp4" type="video/mp4" />
       </video>
       <h4>Drone Footage</h4>
@@ -173,7 +176,7 @@
     </div>
 
     <div class="video__card">
-      <video controls preload="none"> 
+      <video controls playsinline> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video2.mp4"  type="video/mp4" />
       </video>
       <h4>Event Highlight</h4>
@@ -181,7 +184,7 @@
     </div>
 
     <div class="video__card">
-      <video controls preload="none"> 
+      <video controls playsinline> 
         <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video3.mp4" type="video/mp4" />
       </video>
       <h4>Brand Story</h4>
