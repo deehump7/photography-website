@@ -1,78 +1,133 @@
-// ================= NAV TOGGLE =================
-const menuBtn = document.getElementById("menu-btn");
-const navLinks = document.getElementById("nav-links");
-const menuBtnIcon = menuBtn.querySelector("i");
+// ================================
+// OD1SHOTS MAIN JS (PRODUCTION)
+// ================================
 
-menuBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+document.addEventListener("DOMContentLoaded", () => {
 
-  const isOpen = navLinks.classList.contains("active");
-  menuBtnIcon.setAttribute(
-    "class",
-    isOpen ? "ri-close-line" : "ri-menu-3-line"
-  );
-});
+  // ================================
+  // MOBILE NAV TOGGLE
+  // ================================
+  const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
 
-navLinks.addEventListener("click", () => {
-  navLinks.classList.remove("active");
-  menuBtnIcon.setAttribute("class", "ri-menu-3-line");
-});
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
 
-
-// ================= BOOKING MODAL =================
-const bookBtn = document.getElementById("bookBtn");
-const bookingModal = document.getElementById("bookingModal");
-const modal = document.getElementById("bookingModal");
-const closeBtn = document.querySelector(".close-btn");
-
-bookBtn.addEventListener("click", () => {
-  bookingModal.classList.add("active");
-  document.body.style.overflow ="hidden";
-});
-
-closeBtn.addEventListener("click", () =>{
-  bookingModal.classList.remove("active");
-  document.body.style.overflow = "auto";
-});
-
-openBtn.onclick = () => {
-  modal.style.display = "block";
-};
-
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+    // Close menu when clicking a link
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
   }
-};
 
 
-// ================= SLIDER =================
-let slideIndex = 0;
-const slides = document.querySelectorAll(".slide");
+  // ================================
+  // FEATURED PHOTOS SLIDER
+  // ================================
+  // IMPORTANT: Your HTML must use class="featured-slider"
 
-function showSlide(index) {
-  slides.forEach(s => s.style.display = "none");
-  slideIndex = (index + slides.length) % slides.length;
-  slides[slideIndex].style.display = "block";
-}
+  const slider = document.querySelector(".featured-slider");
 
-function nextSlide() {
-  showSlide(slideIndex + 1);
-}
+  if (slider) {
+    const slides = slider.querySelectorAll("img");
+    let currentIndex = 0;
 
-function prevSlide() {
-  showSlide(slideIndex - 1);
-}
+    // Create arrows (if not already in HTML)
+    const prevBtn = document.createElement("button");
+    const nextBtn = document.createElement("button");
 
-document.querySelector(".next").onclick = nextSlide;
-document.querySelector(".prev").onclick = prevSlide;
+    prevBtn.className = "slider-btn prev";
+    nextBtn.className = "slider-btn next";
 
-setInterval(() => {
-  nextSlide();
-}, 5000);
+    prevBtn.innerHTML = "‹";
+    nextBtn.innerHTML = "›";
 
-showSlide(slideIndex);
+    slider.appendChild(prevBtn);
+    slider.appendChild(nextBtn);
+
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove("active");
+        if (i === index) {
+          img.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex =
+        (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    // Auto slide
+    let autoSlide = setInterval(nextSlide, 4000);
+
+    // Buttons
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(nextSlide, 4000);
+    }
+
+    // Init first slide
+    showSlide(currentIndex);
+  }
+
+
+  // ================================
+  // BOOKING MODAL FIX
+  // ================================
+  const bookBtn = document.getElementById("bookBtn");
+  const modal = document.querySelector(".booking-modal");
+  const closeBtn = document.querySelector(".close-modal");
+
+  if (bookBtn && modal) {
+    bookBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden"; // prevent scroll
+    });
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  // Close when clicking outside modal
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
+  }
+
+
+  // ================================
+  // SAFETY CHECK (DEBUG)
+  // ================================
+  console.log("OD1Shots JS Loaded Successfully ✅");
+
+});
