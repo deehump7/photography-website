@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", () => {
       navLinks.classList.toggle("open");
     });
-
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click" , () => {
+        navLinks.classList.toggle("open");
+      });
+    
     // Close menu when clicking a link
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
@@ -27,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ================================
   // FEATURED PHOTOS SLIDER
   // ================================
-  // IMPORTANT: Your HTML must use class="featured-slider"
 
   const slider = document.querySelector(".featured-slider");
 
@@ -35,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = slider.querySelectorAll("img");
     let currentIndex = 0;
 
-    // Create arrows (if not already in HTML)
+    // arrows
     const prevBtn = document.createElement("button");
     const nextBtn = document.createElement("button");
 

@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/assets/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/main.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="/main.js" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer></script>
     <title>OD1 Shots | Photography</title>
   </head>
 
@@ -105,9 +106,7 @@
 
     <div class="slide">
       <img src="https://od1shotsstorage.blob.core.windows.net/media/featured-photos/featured-6.png" alt="Featured Photo 6"/>
-    <div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
+    </div>
   </div>
 </section>
 
@@ -228,10 +227,10 @@
   </div>
 
   <!-- Modal -->
-  <div id="bookingModal" class="modal">
+  <div id="bookingModal" class="booking-modal">
     <div class="modal-content">
-      <span class="close" onclick="closeBooking()">&times;</span>
-      <iframe src="https://od1shotsbooking.lovable.app/book"></iframe>
+      <span class="close-modal" onclick="closeBooking()">&times;</span>
+      <iframe src="https://od1shotsbooking.lovable.app/book" style="width:100%;height:100%;border:none;"></iframe>
     </div>
   </div>
 </section>
