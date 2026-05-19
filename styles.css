@@ -106,7 +106,7 @@ nav {
 .nav__links a {
   position: relative;
   text-decoration: none;
-  color: white;
+  color: var(--text-dark);
   font-weight: 500;
 }
 
@@ -117,7 +117,7 @@ nav {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background: #ff4d4d;
+  background: #f1efcb;
   transition: 0.3s;
 }
 
@@ -138,7 +138,7 @@ nav {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* THIS FIXES CROPPING */
+  object-fit: contain; 
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
 }
@@ -192,28 +192,40 @@ nav {
 }
 
 /* ================= MODAL ================= */
-.modal {
+.booking-modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.8);
+  z-index: 9999;
+}
+
+.booking-modal.active {
+  display: block;
 }
 
 .modal-content {
   width: 90%;
   height: 90%;
-  margin: auto;
+  margin: 5% auto 0;
   display: block;
-  margin-top: 5%;
+  position: relative;
 }
 
-.close {
+.modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-modal  {
   position: fixed;
   top: 20px;
   right: 25px;
   font-size: 2rem;
   color: white;
   cursor: pointer;
+  z-index: 10000;
 }
 
 #bookingModal {

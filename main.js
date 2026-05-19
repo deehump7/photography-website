@@ -102,6 +102,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector(".booking-modal");
   const closeBtn = document.querySelector(".close-modal");
 
+  window.openBooking = function () {
+    if (modal) {
+      modal.classList.add("active");
+      document.body.style.overflow ="hidden";
+    }
+  };
+  
   if (bookBtn && modal) {
     bookBtn.addEventListener("click", (e) => {
       e.preventDefault();
