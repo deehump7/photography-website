@@ -14,10 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", () => {
       navLinks.classList.toggle("open");
     });
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener("click" , () => {
-        navLinks.classList.toggle("open");
-      });
+  
     
     // Close menu when clicking a link
     navLinks.querySelectorAll("a").forEach(link => {
@@ -96,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ================================
-  // BOOKING MODAL FIX
+  // BOOKING MODAL
   // ================================
   const bookBtn = document.getElementById("bookBtn");
   const modal = document.querySelector(".booking-modal");
@@ -108,28 +105,30 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow ="hidden";
     }
   };
+
+  window.closeBooking = function () {
+    if (modal) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  };
   
-  if (bookBtn && modal) {
+  if (bookBtn) {
     bookBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden"; // prevent scroll
+      window.openBooking();
     });
   }
 
-  if (closeBtn && modal) {
-    closeBtn.addEventListener("click", () => {
-      modal.classList.remove("active");
-      document.body.style.overflow = "auto";
-    });
+  if (closeBtn){
+    closeBtn.addEventListener("click", window.closeBooking);
   }
 
   // Close when clicking outside modal
   if (modal) {
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
+        window.closeBooking();
       }
     });
   }
