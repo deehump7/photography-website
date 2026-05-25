@@ -1,12 +1,8 @@
-// ================================
-// OD1SHOTS MAIN JS (PRODUCTION)
-// ================================
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ================================
-  // MOBILE NAV TOGGLE
-  // ================================
+  /* =========================
+     NAV MENU TOGGLE
+  ========================= */
   const menuBtn = document.getElementById("menu-btn");
   const navLinks = document.getElementById("nav-links");
 
@@ -14,129 +10,53 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", () => {
       navLinks.classList.toggle("open");
     });
-  
-    
-    // Close menu when clicking a link
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-      });
-    });
   }
 
-
-  // ================================
-  // FEATURED PHOTOS SLIDER
-  // ================================
-
+  /* =========================
+     FEATURED PHOTOS SLIDER
+  ========================= */
   const slider = document.querySelector(".featured-slider");
+  const slides = document.querySelectorAll(".featured-slide");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
 
-  if (slider) {
-    const slides = slider.querySelectorAll("img");
-    let currentIndex = 0;
+  // STOP if slider doesn't exist (prevents crash)
+  if (!slider || slides.length === 0) return;
 
-    // arrows
-    const prevBtn = document.createElement("button");
-    const nextBtn = document.createElement("button");
+  let index = 0;
 
-    prevBtn.className = "slider-btn prev";
-    nextBtn.className = "slider-btn next";
+  function showSlide(i) {
+    index = (i + slides.length) % slides.length;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
 
-    prevBtn.innerHTML = "‹";
-    nextBtn.innerHTML = "›";
+  function nextSlide() {
+    showSlide(index + 1);
+  }
 
-    slider.appendChild(prevBtn);
-    slider.appendChild(nextBtn);
+  function prevSlide() {
+    showSlide(index - 1);
+  }
 
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove("active");
-        if (i === index) {
-          img.classList.add("active");
-        }
-      });
-    }
+  // Auto slide
+  let autoSlide = setInterval(nextSlide, 5000);
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex =
-        (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    // Auto slide
-    let autoSlide = setInterval(nextSlide, 4000);
-
-    // Buttons
+  // Buttons
+  if (nextBtn && prevBtn) {
     nextBtn.addEventListener("click", () => {
       nextSlide();
-      resetAutoSlide();
+      resetAuto();
     });
 
     prevBtn.addEventListener("click", () => {
       prevSlide();
-      resetAutoSlide();
-    });
-
-    function resetAutoSlide() {
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, 4000);
-    }
-
-    // Init first slide
-    showSlide(currentIndex);
-  }
-
-
-  // ================================
-  // BOOKING MODAL
-  // ================================
-  const bookBtn = document.getElementById("bookBtn");
-  const modal = document.querySelector(".booking-modal");
-  const closeBtn = document.querySelector(".close-modal");
-
-  window.openBooking = function () {
-    if (modal) {
-      modal.classList.add("active");
-      document.body.style.overflow ="hidden";
-    }
-  };
-
-  window.closeBooking = function () {
-    if (modal) {
-      modal.classList.remove("active");
-      document.body.style.overflow = "auto";
-    }
-  };
-  
-  if (bookBtn) {
-    bookBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.openBooking();
+      resetAuto();
     });
   }
 
-  if (closeBtn){
-    closeBtn.addEventListener("click", window.closeBooking);
+  function resetAuto() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, 5000);
   }
-
-  // Close when clicking outside modal
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        window.closeBooking();
-      }
-    });
-  }
-
-
-  // ================================
-  // SAFETY CHECK (DEBUG)
-  // ================================
-  console.log("OD1Shots JS Loaded Successfully ✅");
 
 });
