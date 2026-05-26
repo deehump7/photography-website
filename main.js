@@ -11,17 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("open");
     });
   }
+document.querySelectorAll(".nav_links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+  });
+});
 
   /* =========================
      FEATURED PHOTOS SLIDER
   ========================= */
   const slider = document.querySelector(".featured-slider");
   const slides = document.querySelectorAll(".featured-slide");
-  const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector(".prev");
+  
 
   // STOP if slider doesn't exist (prevents crash)
-  if (!slider || slides.length === 0) return;
+  if (!slider || slides.length === 0) {
+    console.warn("Slider not found - skipping")
+    return;
+  }
 
   let index = 0;
 
@@ -29,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
     index = (i + slides.length) % slides.length;
     slider.style.transform = `translateX(-${index * 100}%)`;
   }
+
+  setInterval(() => {
+    showSlide(index + 1);
+  }, 5000);
 
   function nextSlide() {
     showSlide(index + 1);
@@ -58,5 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(autoSlide);
     autoSlide = setInterval(nextSlide, 5000);
   }
+
+const nextBtn = document.querySelector(".next");
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => showSlide(index + 1));
+}  
 
 });
