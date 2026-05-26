@@ -158,6 +158,9 @@ nav {
   min-width: 100%;
 }
 
+.featured-slider {
+  will-change: transform;
+}
 /* ===== BUTTONS ===== */
 .prev,
 .next {

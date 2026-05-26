@@ -25,10 +25,7 @@ document.querySelectorAll(".nav_links a").forEach(link => {
   
 
   // STOP if slider doesn't exist (prevents crash)
-  if (!slider || slides.length === 0) {
-    console.warn("Slider not found - skipping")
-    return;
-  }
+  if (!slider || slides.length > 0);{
 
   let index = 0;
 
