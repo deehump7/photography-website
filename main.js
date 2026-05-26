@@ -22,10 +22,7 @@ document.querySelectorAll(".nav_links a").forEach(link => {
   ========================= */
   const slider = document.querySelector(".featured-slider");
   const slides = document.querySelectorAll(".featured-slide");
-  
 
-  // STOP if slider doesn't exist (prevents crash)
-  if (!slider || slides.length > 0);{
 
   let index = 0;
 
@@ -38,14 +35,16 @@ document.querySelectorAll(".nav_links a").forEach(link => {
     showSlide(index + 1);
   }, 5000);
 
-  function nextSlide() {
-    showSlide(index + 1);
-  }
+function nextSlide() {
+  index= (index + 1) % slides.length;
+  showSlide(index);
+}
 
-  function prevSlide() {
-    showSlide(index - 1);
-  }
-
+if (slider && slides.length > 0) {
+  setInterval(() => {
+    nextSlide();
+  }, 4000);
+}
   // Auto slide
   let autoSlide = setInterval(nextSlide, 5000);
 
@@ -71,5 +70,9 @@ const nextBtn = document.querySelector(".next");
 if (nextBtn) {
   nextBtn.addEventListener("click", () => showSlide(index + 1));
 }  
+setInterval(() => {
+  nextSlide();
+}, 5000);
 
+}
 });
