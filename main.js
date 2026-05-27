@@ -22,7 +22,8 @@ document.querySelectorAll(".nav_links a").forEach(link => {
   ========================= */
   const slider = document.querySelector(".featured-slider");
   const slides = document.querySelectorAll(".featured-slide");
-
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector("prev");
 
   let index = 0;
 
@@ -74,5 +75,4 @@ setInterval(() => {
   nextSlide();
 }, 5000);
 
-}
 });
