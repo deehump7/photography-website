@@ -20,58 +20,44 @@ document.querySelectorAll(".nav_links a").forEach(link => {
   /* =========================
      FEATURED PHOTOS SLIDER
   ========================= */
+  document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".featured-slider");
   const slides = document.querySelectorAll(".featured-slide");
   const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector("prev");
+  const prevBtn = document.querySelector(".prev");
+
+  // ✅ SAFETY CHECK (THIS WILL STOP YOUR ERRORS)
+  if (!slider || slides.length === 0) {
+    console.error("Slider not found or no slides present");
+    return;
+  }
 
   let index = 0;
 
   function showSlide(i) {
     index = (i + slides.length) % slides.length;
+
+    // ✅ EXTRA SAFETY
+    if (!slider) return;
+
     slider.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  setInterval(() => {
+  function nextSlide() {
     showSlide(index + 1);
-  }, 5000);
-
-function nextSlide() {
-  index= (index + 1) % slides.length;
-  showSlide(index);
-}
-
-if (slider && slides.length > 0) {
-  setInterval(() => {
-    nextSlide();
-  }, 4000);
-}
-  // Auto slide
-  let autoSlide = setInterval(nextSlide, 5000);
-
-  // Buttons
-  if (nextBtn && prevBtn) {
-    nextBtn.addEventListener("click", () => {
-      nextSlide();
-      resetAuto();
-    });
-
-    prevBtn.addEventListener("click", () => {
-      prevSlide();
-      resetAuto();
-    });
   }
 
-  function resetAuto() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(nextSlide, 5000);
+  function prevSlide() {
+    showSlide(index - 1);
   }
 
-if (nextBtn) {
-  nextBtn.addEventListener("click", () => showSlide(index + 1));
-}  
-setInterval(() => {
-  nextSlide();
-}, 5000);
+  nextBtn?.addEventListener("click", nextSlide);
+  prevBtn?.addEventListener("click", prevSlide);
+
+  setInterval(nextSlide, 5000);
+
+  showSlide(0);
+});
+
 console.log("slider working");
 });
