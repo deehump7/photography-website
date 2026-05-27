@@ -67,7 +67,6 @@ if (slider && slides.length > 0) {
     autoSlide = setInterval(nextSlide, 5000);
   }
 
-const nextBtn = document.querySelector(".next");
 if (nextBtn) {
   nextBtn.addEventListener("click", () => showSlide(index + 1));
 }  
