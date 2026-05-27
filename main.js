@@ -73,5 +73,5 @@ if (nextBtn) {
 setInterval(() => {
   nextSlide();
 }, 5000);
-
+console.log("slider working");
 });
