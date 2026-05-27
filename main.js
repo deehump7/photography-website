@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
-     NAV MENU TOGGLE
+     NAV MENU
   ========================= */
   const menuBtn = document.getElementById("menu-btn");
   const navLinks = document.getElementById("nav-links");
@@ -11,24 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("open");
     });
   }
-document.querySelectorAll(".nav_links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
+
+  document.querySelectorAll(".nav__links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
   });
-});
+
 
   /* =========================
-     FEATURED PHOTOS SLIDER
+     FEATURED SLIDER
   ========================= */
-  document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".featured-slider");
   const slides = document.querySelectorAll(".featured-slide");
   const nextBtn = document.querySelector(".next");
   const prevBtn = document.querySelector(".prev");
 
-  // ✅ SAFETY CHECK (THIS WILL STOP YOUR ERRORS)
   if (!slider || slides.length === 0) {
-    console.error("Slider not found or no slides present");
+    console.error("Slider not found");
     return;
   }
 
@@ -36,10 +36,6 @@ document.querySelectorAll(".nav_links a").forEach(link => {
 
   function showSlide(i) {
     index = (i + slides.length) % slides.length;
-
-    // ✅ EXTRA SAFETY
-    if (!slider) return;
-
     slider.style.transform = `translateX(-${index * 100}%)`;
   }
 
@@ -57,7 +53,5 @@ document.querySelectorAll(".nav_links a").forEach(link => {
   setInterval(nextSlide, 5000);
 
   showSlide(0);
-});
 
-console.log("slider working");
 });
