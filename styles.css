@@ -243,11 +243,11 @@ header {
 }
 
 .hero__eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.11rem;
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-dark);
   margin-bottom: 1.5rem;
 }
 
