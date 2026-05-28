@@ -4,7 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico">
-    <meta name="description" content="Professional photography and videography by OD1 Shots — Georgia, USA">
+    <link rel="canonical" href="https://www.od1shots.com">
+    <meta name="description" content="OD1 Shots — portrait, event &amp; aerial videography in Georgia. Book your session today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.od1shots.com">
+    <meta property="og:title" content="OD1 Shots | Photography & Film">
+    <meta property="og:description" content="Portrait, event &amp; aerial videography in Georgia. Book your session today.">
+    <meta property="og:image" content="https://od1shotsstorage.blob.core.windows.net/media/header.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OD1 Shots | Photography & Film">
+    <meta name="twitter:description" content="Portrait, event &amp; aerial videography in Georgia.">
+    <meta name="twitter:image" content="https://od1shotsstorage.blob.core.windows.net/media/header.jpg">
+    <link rel="preload" as="image" href="https://od1shotsstorage.blob.core.windows.net/media/header.jpg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +27,7 @@
   </head>
 
   <body>
+    <a href="#home" class="skip-link">Skip to content</a>
 
     <!-- ===== NAV ===== -->
     <nav id="main-nav">
@@ -178,7 +190,7 @@
         <div class="video__grid">
           <div class="video__card">
             <div class="video__frame">
-              <video controls playsinline preload="none">
+              <video controls playsinline preload="none" poster="https://od1shotsstorage.blob.core.windows.net/media/videos/thumb1.jpg">
                 <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video1.mp4" type="video/mp4" />
               </video>
             </div>
@@ -189,7 +201,7 @@
           </div>
           <div class="video__card">
             <div class="video__frame">
-              <video controls playsinline preload="none">
+              <video controls playsinline preload="none" poster="https://od1shotsstorage.blob.core.windows.net/media/videos/thumb2.jpg">
                 <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video2.mp4" type="video/mp4" />
               </video>
             </div>
@@ -200,7 +212,7 @@
           </div>
           <div class="video__card">
             <div class="video__frame">
-              <video controls playsinline preload="none">
+              <video controls playsinline preload="none" poster="https://od1shotsstorage.blob.core.windows.net/media/videos/thumb3.jpg">
                 <source src="https://od1shotsstorage.blob.core.windows.net/media/videos/videos/video3.mp4" type="video/mp4" />
               </video>
             </div>
@@ -291,7 +303,7 @@
       <div class="booking-cta__inner">
         <h2>Ready to Create Something<br><em>Unforgettable?</em></h2>
         <p>Book your session today and let's bring your vision to life.</p>
-        <a href="https://od1shotsbooking.lovable.app/book/book" class="btn btn--light">Book a Session</a>
+        <a href="https://od1shotsbooking.lovable.app/book" class="btn btn--light">Book a Session</a>
       </div>
     </section>
 
@@ -323,7 +335,7 @@
         </div>
       </div>
       <div class="footer__bar">
-        <span>© 2025 OD1 Shots. All rights reserved.</span>
+        <span>© <span id="copy-year"></span> OD1 Shots. All rights reserved.</span>
         <span>Georgia, USA</span>
       </div>
     </footer>

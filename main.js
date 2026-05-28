@@ -152,4 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* =========================
+     COPYRIGHT YEAR
+  ========================= */
+  const yearEl = document.getElementById("copy-year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 });
